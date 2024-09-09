@@ -3,6 +3,7 @@ import { useState , useEffect,useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 
 const Header = ()=>{
@@ -20,6 +21,10 @@ const Header = ()=>{
     useEffect(()=>{
         // console.log("Effect effect effect")
     }, [btnNameReact])
+
+    const cartItems = useSelector((store)=> store.cart.items)
+
+
     return(
         <div className="flex justify-between bg-pink-100 shadow-lg m-2 sm:bg-yellow-50 lg:bg-green-50">
             <div className="logo-container">
@@ -33,7 +38,9 @@ const Header = ()=>{
                     <li className="px-4 font-semibold"> <Link to="/about">About Us</Link></li>
                     <li className="px-4 font-semibold"> <Link to="/contact">Contact Us</Link></li>
                     <li className="px-4 font-semibold"> <Link to="/grocery">Grocery</Link></li>
-                    <li className="px-4 font-semibold">Cart</li>
+                    {/* <li className="px-4 font-bold text-xl">Cart(0 item)</li> */}
+                    <li className="px-4 font-bold text-xl"><Link to="/cart">Cart  - ({cartItems.length} item)</Link></li>
+                    {/* <li className="px-4 font-bold text-xl">Cart  - ({cartItems.length} item)</li> */}
                     <button className="login" style={{height:"10px" }} onClick={()=>{btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login") }}> <b>{btnNameReact}</b></button>
                     <li className="px-4 font-bold text-green-600">{data.loggedInUser}</li>
                     {/* <li className="px-4 font-semibold text-green-600">{loggedInUser}</li> */}
