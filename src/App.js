@@ -7,7 +7,7 @@ import Contact from './components/Contact';
 import Error from './components/Error';
 import RestaurantMenuStatic from './components/RestaurantMenuStatic';
 import { createBrowserRouter , Outlet, RouterProvider } from 'react-router-dom';
-import RestaurantMenuStatic from './components/RestaurantMenuStatic';
+// import RestaurantMenuStatic from './components/RestaurantMenuStatic';
 import Grocery from './components/Grocery';
 import UserContext from './utils/userContext';
 import { Provider } from 'react-redux';
